@@ -40,3 +40,6 @@ document.body.appendChild(img); */
 
 import jQuery from 'jquery';
 console.log(jQuery);
+
+import log from './log';
+log('开发环境 6');

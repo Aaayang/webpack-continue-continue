@@ -220,9 +220,29 @@ resolve: {
 
 忽略不希望打包的模块，例如 moment
 
-## 区分环境变量
+## 区分环境变量（开发和线上）
 
- 
+```
+module.exports = (env,argv) => ({
+    // 优化相关的
+    optimization: {
+        minimizer: argv.mode === 'production' ? [
+            new UglifyjsWebpackPlugin(), // 压缩 JS
+            new OptimizeCssAssetsWebpackPlugin() // 压缩 CSS
+        ] : []
+    }
+})
+```
+
+## 拆分配置
+
+可以把 webpack 的配置按照不同的环境拆分成多个文件，运行时根据环境加载
+
+依赖 webpack-merge
+
+## 多入口
+
+
 
 
 
